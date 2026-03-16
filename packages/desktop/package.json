@@ -1,0 +1,16 @@
+{
+  "name": "@pawbox/desktop",
+  "version": "0.1.0",
+  "description": "PawBox 桌面端 - 基于Electron的AI助手桌面应用",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "dependencies": {
+    "electron": "^30.0.0"
+  },
+  "keywords": ["pawbox", "electron", "desktop"],
+  "author": "PawBox Team",
+  "license": "MIT"
+}

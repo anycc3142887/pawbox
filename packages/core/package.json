@@ -1,0 +1,12 @@
+{
+  "name": "@pawbox/core",
+  "version": "0.1.0",
+  "description": "PawBox 核心库 - OpenClaw便携版核心模块",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": ["openclaw", "pawbox", "ai-assistant"],
+  "author": "PawBox Team",
+  "license": "MIT"
+}

@@ -165,3 +165,29 @@ npm run release
 <p align="center">
   让AI触手可及 · Make AI Accessible Everywhere
 </p>
+## 🛠️ 本地开发快速开始
+
+```bash
+# 克隆仓库
+git clone https://github.com/anycc3142887/pawbox.git
+cd pawbox
+
+# 安装核心库依赖
+cd packages/core && npm install && cd ../..
+
+# 运行桌面端
+cd packages/desktop && npm install && npm start
+```
+
+## 📁 项目结构
+
+```
+pawbox/
+├── packages/
+│   ├── core/         # 核心库 - 模块注册、配置管理
+│   ├── android/      # Android应用
+│   ├── ios/          # iOS应用
+│   └── desktop/      # 桌面端 - Electron应用
+├── scripts/          # 构建脚本
+└── .github/workflows/ # CI/CD
+```

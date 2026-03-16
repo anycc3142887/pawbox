@@ -1,0 +1,39 @@
+name: PawBox CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [android, ios, desktop]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup
+        run: echo "Setting up ${{ matrix.platform }} build environment"
+      - name: Build
+        run: echo "Building ${{ matrix.platform }}"
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pawbox-${{ matrix.platform }}
+          path: packages/${{ matrix.platform }}/dist/
+
+  pages:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docs
+        run: echo "Building documentation"
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
